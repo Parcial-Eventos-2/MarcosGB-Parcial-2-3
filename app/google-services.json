@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "272399881778",
+    "project_id": "marcosgb-parcial-2-3",
+    "storage_bucket": "marcosgb-parcial-2-3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272399881778:android:1ebd9da6cee36024e30e2b",
+        "android_client_info": {
+          "package_name": "com.example.marcosgb_parcial_2_3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZN5t5Su-uA3xApwYzyPQd7MY5c49HRYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
