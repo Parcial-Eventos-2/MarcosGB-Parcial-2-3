@@ -11,6 +11,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.marcosgb_parcial_2_3.ui.theme.AppTheme
 import com.example.marcosgb_parcial_2_3.vista.PantallaListaFarmacias
 import com.example.marcosgb_parcial_2_3.vista.PantallaMapa
+import com.example.marcosgb_parcial_2_3.vista.PantallaLogin
+import com.example.marcosgb_parcial_2_3.vista.PantallaRegistro
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,11 +29,22 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppNavigation() {
     val navController: NavHostController = rememberNavController()
+    val auth = FirebaseAuth.getInstance()
 
-    NavHost(navController, startDestination = "lista") {
+    NavHost(navController, startDestination = "login") {
+        // Pantalla de Login
+        composable("login") {
+            PantallaLogin(navController, auth)
+        }
+        // Pantalla de Registro
+        composable("registro") {
+            PantallaRegistro(navController, auth)
+        }
+        // Pantalla de Lista de Farmacias
         composable("lista") {
             PantallaListaFarmacias(navController)
         }
+        // Pantalla del Mapa
         composable("mapa/{latitud}/{longitud}") { backStackEntry ->
             val latitud = backStackEntry.arguments?.getString("latitud")?.toDoubleOrNull() ?: 0.0
             val longitud = backStackEntry.arguments?.getString("longitud")?.toDoubleOrNull() ?: 0.0

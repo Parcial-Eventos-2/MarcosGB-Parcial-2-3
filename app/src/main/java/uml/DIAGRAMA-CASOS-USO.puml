@@ -1,0 +1,13 @@
+@startuml
+actor Usuario
+actor Administrador
+
+Usuario -> (Iniciar sesión)
+Usuario -> (Registrarse)
+Usuario -> (Ver lista de farmacias)
+Usuario -> (Ver ubicación en mapa)
+
+Administrador -> (Sincronizar datos)
+
+(Ver lista de farmacias) .> (Ver ubicación en mapa) : include
+@enduml

@@ -1,0 +1,73 @@
+@startuml
+package com.example.marcosgb_parcial_2_3.modelo {
+    class Farmacia {
+        - String nombre
+        - String telefono
+        - double latitud
+        - double longitud
+        - String direccion
+        - String horario
+        + Farmacia()
+        + Farmacia(String, String, double, double, String, String)
+        + getNombre(): String
+        + setNombre(String): void
+        + getTelefono(): String
+        + setTelefono(String): void
+        + getLatitud(): double
+        + setLatitud(double): void
+        + getLongitud(): double
+        + setLongitud(double): void
+        + getDireccion(): String
+        + setDireccion(String): void
+        + getHorario(): String
+        + setHorario(String): void
+    }
+
+    class RepositorioFarmacia {
+        - MutableLiveData<List<Farmacia>> farmacias
+        - Application application
+        + RepositorioFarmacia(Application)
+        + obtenerFarmacias(): LiveData<List<Farmacia>>
+        + cargarFarmaciasDesdeJSON(String): void
+    }
+
+    class VistaModeloFarmacia {
+        - RepositorioFarmacia repositorio
+        - LiveData<List<Farmacia>> farmacias
+        + VistaModeloFarmacia(Application)
+        + obtenerFarmacias(): LiveData<List<Farmacia>>
+        + cargarFarmaciasDesdeJSON(String): void
+    }
+}
+
+package com.example.marcosgb_parcial_2_3.service {
+    class SincronizarFarmaciasWorker {
+        + SincronizarFarmaciasWorker(Context, WorkerParameters)
+        + doWork(): Result
+    }
+}
+
+package com.example.marcosgb_parcial_2_3.vista {
+    class PantallaListaFarmacias
+    class PantallaMapa
+    class PantallaLogin
+    class PantallaRegistro
+}
+
+package com.example.marcosgb_parcial_2_3 {
+    class MyApplication {
+        + onCreate(): void
+    }
+    class MainActivity {
+        + onCreate(Bundle): void
+    }
+}
+
+RepositorioFarmacia --> Farmacia
+VistaModeloFarmacia --> RepositorioFarmacia
+SincronizarFarmaciasWorker --> RepositorioFarmacia
+MainActivity --> PantallaListaFarmacias
+MainActivity --> PantallaMapa
+MainActivity --> PantallaLogin
+MainActivity --> PantallaRegistro
+@enduml
