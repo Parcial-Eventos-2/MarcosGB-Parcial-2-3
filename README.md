@@ -14,12 +14,13 @@ Aplicación para listar y mostrar en un mapa las farmacias de Zaragoza. La aplic
 - Visualización de la ubicación de las farmacias en un mapa.
 - Sincronización de datos desde un archivo JSON.
 - Persistencia de datos con Firebase.
+- Autenticación de usuarios con Firebase Authentication.
 
 ## Tecnologías
 - Kotlin
 - Java
 - Android Jetpack (LiveData, ViewModel)
-- Firebase
+- Firebase (Authentication, Realtime Database)
 - Google Maps
 
 ## Instalación
@@ -29,8 +30,9 @@ Aplicación para listar y mostrar en un mapa las farmacias de Zaragoza. La aplic
 4. Ejecuta la aplicación en un dispositivo o emulador Android.
 
 ## Uso
-1. Al abrir la aplicación, se mostrará una lista de farmacias.
-2. Al hacer clic en una farmacia, se abrirá un mapa con la ubicación de la farmacia seleccionada.
+1. Al abrir la aplicación, se mostrará la pantalla de inicio de sesión.
+2. Inicia sesión o regístrate para acceder a la lista de farmacias.
+3. Al hacer clic en una farmacia, se abrirá un mapa con la ubicación de la farmacia seleccionada.
 
 ## Estructura del Proyecto
 - `modelo`: Contiene las clases de datos y repositorios.
