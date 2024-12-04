@@ -3,45 +3,38 @@ package com.example.marcosgb_parcial_2_3
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.marcosgb_parcial_2_3.ui.theme.MarcosGBParcial23Theme
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.marcosgb_parcial_2_3.ui.theme.AppTheme
+import com.example.marcosgb_parcial_2_3.vista.PantallaListaFarmacias
+import com.example.marcosgb_parcial_2_3.vista.PantallaMapa
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            MarcosGBParcial23Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            AppTheme {
+                AppNavigation()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun AppNavigation() {
+    val navController: NavHostController = rememberNavController()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MarcosGBParcial23Theme {
-        Greeting("Android")
+    NavHost(navController, startDestination = "lista") {
+        composable("lista") {
+            PantallaListaFarmacias(navController)
+        }
+        composable("mapa/{latitud}/{longitud}") { backStackEntry ->
+            val latitud = backStackEntry.arguments?.getString("latitud")?.toDoubleOrNull() ?: 0.0
+            val longitud = backStackEntry.arguments?.getString("longitud")?.toDoubleOrNull() ?: 0.0
+            PantallaMapa(latitud, longitud)
+        }
     }
 }

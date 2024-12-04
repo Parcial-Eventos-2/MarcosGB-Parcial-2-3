@@ -63,6 +63,9 @@ android {
 
 dependencies {
 
+    implementation(libs.google.maps)
+    implementation(libs.maps.compose)
+    implementation(libs.google.gson)
     implementation (libs.ui)
     implementation (libs.material3)
     implementation(libs.androidx.core.ktx)

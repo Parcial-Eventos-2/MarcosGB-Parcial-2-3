@@ -9,6 +9,9 @@ firebaseDatabase = "21.0.0"
 firebaseAuth = "23.0.0"
 firebaseMessaging = "24.0.2"
 googleServices = "4.4.2"
+gson = "2.8.9"
+google-maps = "18.1.0"
+maps-compose = "2.11.2"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -77,6 +80,9 @@ androidx-room-common = { group = "androidx.room", name = "room-common", version.
 androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
+google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+google-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "google-maps" }
+maps-compose = { group = "com.google.maps.android", name = "maps-compose", version.ref = "maps-compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
