@@ -1,6 +1,6 @@
 # MarcosGB-Parcial-2-3
 
-REPOSITORIO-->
+REPOSITORIO-->https://github.com/Parcial-Eventos-2/MarcosGB-Parcial-2-3
 
 ## Descripción
 Aplicación para listar y mostrar en un mapa las farmacias de Zaragoza. La aplicación permite visualizar la lista de farmacias y su ubicación en un mapa.
